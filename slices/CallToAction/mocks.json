@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title_line_1": {
+				"__TYPE__": "FieldContent",
+				"value": "eaten",
+				"type": "Text"
+			},
+			"title_line_2": {
+				"__TYPE__": "FieldContent",
+				"value": "paper",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ullamco reprehenderit ut sunt. Reprehenderit voluptate deserunt magna magna aute enim culpa nostrud ad elit magna reprehenderit."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

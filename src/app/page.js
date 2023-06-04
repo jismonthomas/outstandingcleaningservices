@@ -1,0 +1,20 @@
+import { createClient } from '../../prismicio';
+import { PrismicRichText } from '@prismicio/react';
+
+
+export default async function Home() {
+    const client = createClient();
+    // const document = await client.getSingle("home");
+
+    // console.log('client', client);
+    // console.log('PAGE DATA: ', document.data);
+
+    return (
+        <main className="flex min-h-screen">
+            <div>
+                <h1>Home Page</h1>
+                {/* <PrismicRichText field={document.data.header_text} /> */}
+            </div>
+        </main>
+    );
+}

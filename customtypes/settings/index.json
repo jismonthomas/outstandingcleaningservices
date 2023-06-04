@@ -1,0 +1,39 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "white_letter_logo": {
+        "type": "Image",
+        "config": {
+          "label": "White Letter Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "black_letter_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Black Letter Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "icon": {
+        "type": "Image",
+        "config": { "label": "Icon", "constraint": {}, "thumbnails": [] }
+      },
+      "primary_color": {
+        "type": "Color",
+        "config": { "label": "Primary Color", "placeholder": "" }
+      },
+      "dark_text_color": {
+        "type": "Color",
+        "config": { "label": "Dark Text Color", "placeholder": "" }
+      }
+    }
+  }
+}

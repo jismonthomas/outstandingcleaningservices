@@ -1,0 +1,33 @@
+{
+  "id": "header",
+  "type": "SharedSlice",
+  "name": "Header",
+  "description": "Header",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {
+        "title_line_1": {
+          "type": "Text",
+          "config": { "label": "Title Line", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}
