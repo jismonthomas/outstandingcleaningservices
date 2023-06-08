@@ -17,11 +17,134 @@
 } */
 
 body {
+    @apply font-body;
     @apply text-primary-dark;
+    --nav-height: 120px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-headings;
+    @apply font-bold;
 }
 
 .container {
     @apply mx-auto;
+}
+
+.section-wrapper {
+    padding-top: 8.125rem;
+    padding-bottom: 8.125rem;
+}
+
+header {
+    @apply bg-primary-blue;
+    @apply text-white;
+    min-height: calc(100vh - var(--nav-height));
+}
+
+header h1 {
+    font-size: clamp(2.5rem, 9.7vw, 127px);
+    line-height: 1.1;
+}
+
+header p {
+    @apply mt-16;
+}
+
+header.headerWithButton p {
+    max-width: 71%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    --button-height: 58px;
+    @apply relative;
+    @apply overflow-hidden;
+    @apply inline-flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply font-bold;
+    @apply border;
+    @apply rounded-[5px];
+    @apply py-4;
+    @apply px-7;
+    height: var(--button-height);
+}
+
+.button span.button-label {
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    height: var(--button-height);
+    @apply z-1;
+}
+
+.button.primary {
+    @apply bg-white;
+    @apply text-primary-blue;
+}
+
+.button span.button-label:nth-child(1) {
+    @apply translate-y-0;
+    transition: transform 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.button span.button-label:nth-child(2) {
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply absolute;
+    @apply top-0;
+    @apply left-0;
+    @apply w-full;
+    @apply h-full;
+    @apply translate-y-full;
+    transition: transform 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.button span.button-label:nth-child(2) span {
+    @apply z-1;
+}
+
+.button span.button-label:nth-child(2)::before {
+    content: '';
+    @apply absolute;
+    @apply top-0;
+    @apply left-0;
+    @apply w-full;
+    @apply h-full;
+    @apply z-0;
+    @apply bg-primary-clean-blue;
+    @apply rounded-[25px];
+    transition: border-radius 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.button:hover span.button-label:nth-child(1) {
+    @apply -translate-y-full;
+}
+
+.button:hover span.button-label:nth-child(2) {
+    @apply translate-y-0;
+}
+
+.button:hover span.button-label:nth-child(2)::before {
+    @apply rounded-[4px];
+}
+
+main {
+    font-size: 1.125rem;
+}
+
+@screen md {
+    header p {
+        font-size: 1.375rem;
+    }
 }
 
 @screen 3xl {

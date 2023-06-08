@@ -23,7 +23,56 @@
         }
       },
       "items": {
-        "title_line_1": {
+        "title_line": {
+          "type": "Text",
+          "config": { "label": "Title Line", "placeholder": "" }
+        }
+      }
+    },
+    {
+      "id": "headerWithButton",
+      "name": "header-with-button",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "primary_button": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Button",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "primary_button_text": {
+          "type": "Text",
+          "config": { "label": "Primary Button Text", "placeholder": "" }
+        },
+        "secondary_button": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Button",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "secondary_button_text": {
+          "type": "Text",
+          "config": { "label": "Secondary Button Text ", "placeholder": "" }
+        }
+      },
+      "items": {
+        "title_line": {
           "type": "Text",
           "config": { "label": "Title Line", "placeholder": "" }
         }

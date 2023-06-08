@@ -271,7 +271,10 @@ interface HomeDocumentData {
  * Slice for *Home → Slice Zone*
  *
  */
-type HomeDocumentDataSlicesSlice = HeaderSlice;
+type HomeDocumentDataSlicesSlice =
+  | HeaderSlice
+  | CallToActionSlice
+  | ImageSliderSlice;
 /**
  * Home document from Prismic
  *
@@ -522,11 +525,11 @@ export interface HeaderSliceDefaultItem {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: header.items[].title_line_1
+   * - **API ID Path**: header.items[].title_line
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  title_line_1: prismic.KeyTextField;
+  title_line: prismic.KeyTextField;
 }
 /**
  * Default variation for Header Slice
@@ -542,10 +545,95 @@ export type HeaderSliceDefault = prismic.SharedSliceVariation<
   Simplify<HeaderSliceDefaultItem>
 >;
 /**
+ * Primary content in Header → Primary
+ *
+ */
+interface HeaderSliceHeaderWithButtonPrimary {
+  /**
+   * Description field in *Header → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.primary.description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Primary Button field in *Header → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.primary.primary_button
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  primary_button: prismic.LinkField;
+  /**
+   * Primary Button Text field in *Header → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.primary.primary_button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  primary_button_text: prismic.KeyTextField;
+  /**
+   * Secondary Button field in *Header → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.primary.secondary_button
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  secondary_button: prismic.LinkField;
+  /**
+   * Secondary Button Text  field in *Header → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.primary.secondary_button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  secondary_button_text: prismic.KeyTextField;
+}
+/**
+ * Item in Header → Items
+ *
+ */
+export interface HeaderSliceHeaderWithButtonItem {
+  /**
+   * Title Line field in *Header → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.items[].title_line
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title_line: prismic.KeyTextField;
+}
+/**
+ * header-with-button variation for Header Slice
+ *
+ * - **API ID**: `headerWithButton`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeaderSliceHeaderWithButton = prismic.SharedSliceVariation<
+  "headerWithButton",
+  Simplify<HeaderSliceHeaderWithButtonPrimary>,
+  Simplify<HeaderSliceHeaderWithButtonItem>
+>;
+/**
  * Slice variation for *Header*
  *
  */
-type HeaderSliceVariation = HeaderSliceDefault;
+type HeaderSliceVariation = HeaderSliceDefault | HeaderSliceHeaderWithButton;
 /**
  * Header Shared Slice
  *
@@ -555,6 +643,62 @@ type HeaderSliceVariation = HeaderSliceDefault;
  *
  */
 export type HeaderSlice = prismic.SharedSlice<"header", HeaderSliceVariation>;
+/**
+ * Item in ImageSlider → Items
+ *
+ */
+export interface ImageSliderSliceDefaultItem {
+  /**
+   * Image field in *ImageSlider → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slider.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Caption field in *ImageSlider → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slider.items[].caption
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  caption: prismic.KeyTextField;
+}
+/**
+ * Default variation for ImageSlider Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageSliderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ImageSliderSliceDefaultItem>
+>;
+/**
+ * Slice variation for *ImageSlider*
+ *
+ */
+type ImageSliderSliceVariation = ImageSliderSliceDefault;
+/**
+ * ImageSlider Shared Slice
+ *
+ * - **API ID**: `image_slider`
+ * - **Description**: `ImageSlider`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageSliderSlice = prismic.SharedSlice<
+  "image_slider",
+  ImageSliderSliceVariation
+>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -588,8 +732,15 @@ declare module "@prismicio/client" {
       HeaderSliceDefaultPrimary,
       HeaderSliceDefaultItem,
       HeaderSliceDefault,
+      HeaderSliceHeaderWithButtonPrimary,
+      HeaderSliceHeaderWithButtonItem,
+      HeaderSliceHeaderWithButton,
       HeaderSliceVariation,
       HeaderSlice,
+      ImageSliderSliceDefaultItem,
+      ImageSliderSliceDefault,
+      ImageSliderSliceVariation,
+      ImageSliderSlice,
     };
   }
 }

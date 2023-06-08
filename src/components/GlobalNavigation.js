@@ -6,7 +6,7 @@ const getData = async (type) => {
     const client = createClient();
     try {
         const document = await client.getSingle(type);
-        console.log('document', document);
+        // console.log('document', document);
         return document.data;
     }
     catch (e) {
@@ -27,7 +27,7 @@ const GlobalNavigation = async () => {
             <div className='container'>
                 <div className='flex justify-between items-center py-8'>
                     <Link href='/'>
-                        <PrismicNextImage field={logo} />
+                        <PrismicNextImage field={logo} priority />
                     </Link>
 
                     <div className='bg-white font-semibold rounded-[5px]'>

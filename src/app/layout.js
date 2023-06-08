@@ -1,8 +1,19 @@
 import GlobalNavigation from '../components/GlobalNavigation';
 import './globals.css';
 import { Manrope } from 'next/font/google';
+import localFont from 'next/font/local';
 
-const manrope = Manrope({ subsets: ['latin'] });
+const manrope = Manrope({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-manrope',
+});
+
+const switzer = localFont({
+  src: '../../public/font/Switzer-Variable.ttf',
+  display: 'swap',
+  variable: '--font-switzer',
+});
 
 export const metadata = {
   title: 'Outstanding Cleaning Services',
@@ -12,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={manrope.className}>
+      <body className={`${manrope.variable} ${switzer.variable}`}>
         <GlobalNavigation />
         {children}
       </body>

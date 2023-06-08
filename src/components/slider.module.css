@@ -1,0 +1,47 @@
+.homeServiceSlider::after {
+    content: '';
+    @apply block;
+    @apply absolute;
+    @apply left-0;
+    @apply bottom-0;
+    @apply w-full;
+    @apply z-1;
+    height: 50vh;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.65) 74.48%
+    );
+}
+
+.progress {
+    @apply mt-1;
+    @apply block;
+    @apply relative;
+    @apply bg-white;
+    @apply bg-opacity-10;
+    @apply h-[1px];
+    @apply w-full;
+    @apply rounded-lg;
+}
+
+.progress::after {
+    content: '';
+    @apply block;
+    @apply absolute;
+    @apply left-0;
+    @apply bottom-0;
+    @apply w-full;
+    @apply h-full;
+    @apply z-1;
+    @apply bg-white;
+    @apply origin-right;
+    transform: scaleX(0);
+    transition: transform 200ms linear;
+}
+
+.progress.active::after {
+    transform: scaleX(1);
+    @apply origin-left;
+    transition-duration: 3500ms;
+}

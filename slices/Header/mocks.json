@@ -20,10 +20,66 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"title_line_1",
+						"title_line",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "interest",
+							"value": "dirty",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "headerWithButton",
+		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nostrud eiusmod sint nisi laborum sint. Esse magna eu mollit laborum eiusmod id incididunt deserunt anim sint mollit."
+						}
+					}
+				]
+			},
+			"primary_button": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"secondary_button": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"primary_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "recognize",
+				"type": "Text"
+			},
+			"secondary_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "support",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title_line",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "appearance",
 							"type": "Text"
 						}
 					]
