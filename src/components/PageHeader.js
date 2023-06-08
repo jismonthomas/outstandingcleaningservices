@@ -14,7 +14,7 @@ const PageHeader = ({ headerSlice }) => {
                     {
                         headingLines.map(({ title_line }) => {
                             console.log('line', title_line);
-                            return <span className='block' id={title_line}>
+                            return <span className='block whitespace-nowrap' id={title_line}>
                                 {title_line}
                             </span>;
                         })
@@ -22,8 +22,8 @@ const PageHeader = ({ headerSlice }) => {
                 </h1>
                 <PrismicRichText field={paragraph} />
 
-                <div className='flex mt-12 gap-12 items-center justify-center'>
-                    <PrismicLink field={headerSlice[0].primary.primary_button} className='button primary'>
+                <div className='flex mt-12 gap-6 md:gap-12 items-center justify-center max-sm:flex-col'>
+                    <PrismicLink field={headerSlice[0].primary.primary_button} className='button primary max-sm:w-full'>
                         <span className='button-label'>
                             {headerSlice[0].primary.primary_button_text}
                         </span>
@@ -34,7 +34,7 @@ const PageHeader = ({ headerSlice }) => {
                         </span>
                     </PrismicLink>
 
-                    <PrismicLink field={headerSlice[0].primary.secondary_button} className='button secondary'>
+                    <PrismicLink field={headerSlice[0].primary.secondary_button} className='button secondary max-sm:w-full'>
                         <span className='button-label'>
                             {headerSlice[0].primary.secondary_button_text}
                         </span>

@@ -34,6 +34,7 @@ h6 {
 
 .container {
     @apply mx-auto;
+    @apply px-4;
 }
 
 .section-wrapper {
@@ -53,11 +54,11 @@ header h1 {
 }
 
 header p {
-    @apply mt-16;
+    @apply mt-8;
 }
 
 header.headerWithButton p {
-    max-width: 71%;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -142,8 +143,16 @@ main {
 }
 
 @screen md {
+}
+
+@screen md {
     header p {
         font-size: 1.375rem;
+        @apply mt-16;
+    }
+
+    header.headerWithButton p {
+        max-width: 71%;
     }
 }
 
