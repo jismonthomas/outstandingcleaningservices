@@ -9,7 +9,7 @@ export default async function Home() {
 
     const getData = async () => {
         try {
-            const document = await client.getSingle("home");
+            // const document = await client.getSingle("home");
             // console.log('document: ', document.data);
             return document.data;
         }
@@ -18,9 +18,9 @@ export default async function Home() {
         }
     };
 
-    const data = await getData();
-    const header = data?.slices?.filter(slice => slice.slice_type === 'header');
-    const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
+    // const data = await getData();
+    // const header = data?.slices?.filter(slice => slice.slice_type === 'header');
+    // const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
     // console.log('header :', header);
     // console.log('slider :', slider);
 
