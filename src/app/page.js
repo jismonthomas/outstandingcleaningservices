@@ -9,7 +9,7 @@ export default async function Home() {
 
     const getData = async () => {
         try {
-            // const document = await client.getSingle("home");
+            const document = await client.getSingle("home");
             // console.log('document: ', document.data);
             return document.data;
         }
