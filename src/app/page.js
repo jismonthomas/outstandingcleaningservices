@@ -27,9 +27,9 @@ export default async function Home() {
 
     return (
         <main>
-            {/* <PageHeader
-            headerSlice={header}
-            /> */}
+            <PageHeader
+                headerSlice={header}
+            />
             <section className='bg-gradient-to-b from-primary-blue from-20% to-transparent to-20%'>
                 <div className='section-wrapper'>
                     <div className='container'>
