@@ -10,19 +10,20 @@ export default async function Home() {
     const getData = async () => {
         try {
             const document = await client.getSingle("home");
-            const header = document?.data?.slices?.filter(slice => slice.variation === 'headerWithButton');
             // console.log('document: ', document.data);
-            return header;
+            return document.data;
         }
         catch (e) {
             console.log('fetch error', e);
         }
     };
 
-    const header = await getData();
+    const data = await getData();
+    const header = data?.slices?.filter(slice => slice.slice_type === 'header');
+    const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
     console.log('header :', header);
+    console.log('slider :', slider);
 
-    // const slider = document.data.slices.filter(slice => slice.slice_type === 'image_slider');
 
 
     return (
@@ -33,7 +34,7 @@ export default async function Home() {
             <section className='bg-gradient-to-b from-primary-blue from-20% to-transparent to-20%'>
                 <div className='section-wrapper'>
                     <div className='container'>
-                        {/* <Slider content={slider} /> */}
+                        <Slider content={slider} />
                     </div>
                 </div>
             </section>
