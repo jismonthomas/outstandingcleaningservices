@@ -2,26 +2,23 @@ import PageHeader from '@/components/PageHeader';
 import { createClient } from '../../prismicio';
 import { PrismicRichText } from '@prismicio/react';
 import Slider from '@/components/Slider';
-import { useState } from 'react';
 
 
 export default async function Home() {
-    const [pageData, setPageData] = useState();
     const client = createClient();
 
     const getData = async () => {
         try {
             const document = await client.getSingle("home");
             // console.log('document: ', document.data);
-            setPageData(document.data);
-            // return document.data;
+            return document.data;
         }
         catch (e) {
             console.log('fetch error', e);
         }
     };
 
-    getData(); //error here
+    const data = getData(); //error here
     // const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     // const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
     // console.log('header :', header);
