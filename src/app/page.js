@@ -18,7 +18,7 @@ export default async function Home() {
         }
     };
 
-    const data = getData(); //error here
+    const data = await getData(); //error here
     // const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     // const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
     // console.log('header :', header);
