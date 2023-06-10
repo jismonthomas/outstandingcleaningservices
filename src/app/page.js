@@ -6,7 +6,7 @@ import Slider from '@/components/Slider';
 
 export default async function Home() {
     const client = createClient();
-    // const document = await client.getSingle("home");
+    const document = await client.getSingle("home");
 
     // console.log('client', client);
     // console.log('document:', document.data);
