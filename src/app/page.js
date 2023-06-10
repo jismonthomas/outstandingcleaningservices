@@ -6,9 +6,18 @@ import Slider from '@/components/Slider';
 
 export default async function Home() {
     const client = createClient();
-    const document = await client.getSingle("home");
 
-    const header = document?.data?.slices?.filter(slice => slice.slice_type === 'header');
+    try {
+        const document = await client.getSingle("home");
+        const header = document?.data?.slices?.filter(slice => slice.variation === 'headerWithButton');
+        console.log('document: ', document.data);
+        console.log('header :', header);
+    }
+    catch (e) {
+        console.log('fetch error', e);
+    }
+
+
     // const slider = document.data.slices.filter(slice => slice.slice_type === 'image_slider');
 
 
