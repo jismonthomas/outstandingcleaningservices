@@ -1,3 +1,4 @@
+'use client';
 import PageHeader from '@/components/PageHeader';
 import { createClient } from '../../prismicio';
 import { PrismicRichText } from '@prismicio/react';
