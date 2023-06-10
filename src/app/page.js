@@ -11,7 +11,7 @@ export default async function Home() {
     // console.log('client', client);
     // console.log('document:', document.data);
 
-    // const header = document.data.slices.filter(slice => slice.slice_type === 'header');
+    const header = document.data.slices.filter(slice => slice.slice_type === 'header');
     // const slider = document.data.slices.filter(slice => slice.slice_type === 'image_slider');
 
 
