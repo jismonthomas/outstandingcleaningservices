@@ -19,10 +19,11 @@ export default async function Home() {
         }
         catch (e) {
             console.log('fetch error', e);
+            return;
         }
     };
 
-    // const data = await getData(); //error here
+    getData(); //error here
     // const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     // const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
     // console.log('header :', header);
