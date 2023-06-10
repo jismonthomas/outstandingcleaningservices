@@ -16,16 +16,16 @@ const getData = async (type) => {
 };
 
 const GlobalNavigation = async () => {
-    const settings = await getData('settings');
-    const logo = settings.white_letter_logo;
+    // const settings = await getData('settings');
+    // const logo = settings.white_letter_logo;
 
-    const globalNavigation = await getData('global_navigation');
-    const menuItems = Object.entries(globalNavigation);
+    // const globalNavigation = await getData('global_navigation');
+    // const menuItems = Object.entries(globalNavigation);
 
     return (
         <div className=' bg-primary-blue'>
             <div className='container'>
-                <div className='flex justify-between items-center py-8'>
+                {/* <div className='flex justify-between items-center py-8'>
                     <Link href='/'>
                         <PrismicNextImage field={logo} priority />
                     </Link>
@@ -40,7 +40,7 @@ const GlobalNavigation = async () => {
                             })
                         }
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
