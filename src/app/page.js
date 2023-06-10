@@ -8,24 +8,21 @@ import { useState } from 'react';
 
 export default async function Home() {
     const client = createClient();
-    const [data, setData] = useState();
 
     const getData = async () => {
         try {
             const document = await client.getSingle("home");
             // console.log('document: ', document.data);
-            setData(document.data);
-            return;
+            return document.data;
         }
         catch (e) {
             console.log('fetch error', e);
-            return;
         }
     };
 
-    getData(); //error here
-    // const header = data?.slices?.filter(slice => slice.slice_type === 'header');
-    // const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
+    const data = await getData(); //error here
+    const header = data?.slices?.filter(slice => slice.slice_type === 'header');
+    const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
     // console.log('header :', header);
     // console.log('slider :', slider);
 
@@ -33,13 +30,13 @@ export default async function Home() {
 
     return (
         <main>
-            {/* <PageHeader
+            <PageHeader
                 headerSlice={header}
-            /> */}
+            />
             <section className='bg-gradient-to-b from-primary-blue from-20% to-transparent to-20%'>
                 <div className='section-wrapper'>
                     <div className='container'>
-                        {/* <Slider content={slider} /> */}
+                        <Slider content={slider} />
                     </div>
                 </div>
             </section>
