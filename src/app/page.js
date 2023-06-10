@@ -3,16 +3,19 @@ import PageHeader from '@/components/PageHeader';
 import { createClient } from '../../prismicio';
 import { PrismicRichText } from '@prismicio/react';
 import Slider from '@/components/Slider';
+import { useState } from 'react';
 
 
 export default async function Home() {
     const client = createClient();
+    const [data, setData] = useState();
 
     const getData = async () => {
         try {
             const document = await client.getSingle("home");
             // console.log('document: ', document.data);
-            return document.data;
+            setData(document.data);
+            return;
         }
         catch (e) {
             console.log('fetch error', e);
