@@ -6,4 +6,5 @@ export const components = {
   call_to_action: dynamic(() => import("./CallToAction")),
   header: dynamic(() => import("./Header")),
   image_slider: dynamic(() => import("./ImageSlider")),
+  service_item: dynamic(() => import("./ServiceItem")),
 };

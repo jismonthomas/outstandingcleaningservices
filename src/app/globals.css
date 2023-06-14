@@ -38,8 +38,9 @@ h6 {
 }
 
 .section-wrapper {
-    padding-top: 8.125rem;
-    padding-bottom: 8.125rem;
+    --padding: 4.0625rem;
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
 }
 
 header {
@@ -138,8 +139,12 @@ header.headerWithButton p {
     @apply rounded-[4px];
 }
 
-main {
-    font-size: 1.125rem;
+.section-heading h1 {
+    font-size: clamp(2rem, 5.58vw, 6.688rem);
+}
+
+.services h2 {
+    font-size: clamp(1.25rem, 1.83vw, 2.188rem);
 }
 
 @screen md {
@@ -153,6 +158,21 @@ main {
 
     header.headerWithButton p {
         max-width: 71%;
+    }
+}
+
+@screen lg {
+    main {
+        font-size: 1.125rem;
+    }
+
+    .section-wrapper {
+        --padding: 8.125rem;
+    }
+
+    .section-wrapper.small {
+        padding-top: calc(var(--padding) / 2);
+        padding-bottom: calc(var(--padding) / 2);
     }
 }
 

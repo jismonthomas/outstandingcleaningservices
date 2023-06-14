@@ -359,7 +359,7 @@ interface ServicesDocumentData {
  * Slice for *Services → Slice Zone*
  *
  */
-type ServicesDocumentDataSlicesSlice = never;
+type ServicesDocumentDataSlicesSlice = ServiceItemSlice;
 /**
  * Services document from Prismic
  *
@@ -721,6 +721,92 @@ export type ImageSliderSlice = prismic.SharedSlice<
   "image_slider",
   ImageSliderSliceVariation
 >;
+/**
+ * Item in ServiceItem → Items
+ *
+ */
+export interface ServiceItemSliceDefaultItem {
+  /**
+   * Heading field in *ServiceItem → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_item.items[].heading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  heading: prismic.KeyTextField;
+  /**
+   * Description field in *ServiceItem → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_item.items[].description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Excerpt field in *ServiceItem → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_item.items[].excerpt
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  excerpt: prismic.RichTextField;
+  /**
+   * Icon field in *ServiceItem → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_item.items[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
+  /**
+   * Theme field in *ServiceItem → Items*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_item.items[].theme
+   * - **Documentation**: https://prismic.io/docs/core-concepts/color
+   *
+   */
+  theme: prismic.ColorField;
+}
+/**
+ * Default variation for ServiceItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ServiceItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ServiceItemSliceDefaultItem>
+>;
+/**
+ * Slice variation for *ServiceItem*
+ *
+ */
+type ServiceItemSliceVariation = ServiceItemSliceDefault;
+/**
+ * ServiceItem Shared Slice
+ *
+ * - **API ID**: `service_item`
+ * - **Description**: `ServiceItem`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ServiceItemSlice = prismic.SharedSlice<
+  "service_item",
+  ServiceItemSliceVariation
+>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -763,6 +849,10 @@ declare module "@prismicio/client" {
       ImageSliderSliceDefault,
       ImageSliderSliceVariation,
       ImageSliderSlice,
+      ServiceItemSliceDefaultItem,
+      ServiceItemSliceDefault,
+      ServiceItemSliceVariation,
+      ServiceItemSlice,
     };
   }
 }
