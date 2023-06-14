@@ -31,14 +31,16 @@ const GlobalNavigation = async () => {
                     </Link>
 
                     <div className='bg-white font-semibold rounded-[5px]'>
-                        {
-                            menuItems.map(menuItem => {
-                                return menuItem[1].id &&
-                                    <PrismicNextLink field={menuItem[1]} className='py-5 px-10 inline-block capitalize leading-none'>
-                                        {menuItem[1].slug}
-                                    </PrismicNextLink>;
-                            })
-                        }
+                        <div className='max-lg:hidden'>
+                            {
+                                menuItems.map(menuItem => {
+                                    return menuItem[1].id &&
+                                        <PrismicNextLink field={menuItem[1]} className='py-5 px-10 inline-block capitalize leading-none'>
+                                            {menuItem[1].slug}
+                                        </PrismicNextLink>;
+                                })
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
