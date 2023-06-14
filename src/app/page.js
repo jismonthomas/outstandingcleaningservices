@@ -22,7 +22,7 @@ export default async function Home() {
     const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
     const servicePage = await getData("services");
-    const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
+    // const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
     // console.log('header :', header);
     // console.log('slider :', slider);
     // console.log('services',services);
