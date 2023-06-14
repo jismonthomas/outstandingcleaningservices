@@ -25,7 +25,7 @@ export default async function Home() {
     const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
     // console.log('header :', header);
     // console.log('slider :', slider);
-    console.log('services',);
+    // console.log('services',services);
 
 
 
@@ -59,7 +59,7 @@ export default async function Home() {
                 </div>
             </section>
 
-            <section>
+            {/* <section>
                 <div className='section-wrapper small'>
                     <div className='container'>
                         <div className='flex max-lg:flex-col flex-wrap justify-between gap-12 2xl:gap-24 services'>
@@ -82,7 +82,7 @@ export default async function Home() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
         </main>
     );
