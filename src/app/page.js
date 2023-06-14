@@ -19,7 +19,7 @@ export default async function Home() {
     };
 
     const data = await getData("home"); //error here
-    // const servicePage = await getData("services"); //error here
+    const servicePage = await getData("services"); //error here
     const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
     // const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
