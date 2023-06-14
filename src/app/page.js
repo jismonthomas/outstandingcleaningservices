@@ -1,9 +1,6 @@
-'use client';
 import PageHeader from '@/components/PageHeader';
 import { createClient } from '../../prismicio';
-import { PrismicRichText } from '@prismicio/react';
 import Slider from '@/components/Slider';
-import { useState } from 'react';
 
 
 export default async function Home() {

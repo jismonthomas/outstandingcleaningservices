@@ -223,6 +223,28 @@ export type GlobalNavigationDocument<Lang extends string = string> =
 /** Content for Home documents */
 interface HomeDocumentData {
   /**
+   * Section 3 Left Side field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.section_3_left_side
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  section_3_left_side: prismic.RichTextField;
+  /**
+   * Section 3 Right Side field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.section_3_right_side
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  section_3_right_side: prismic.RichTextField;
+  /**
    * Slice Zone field in *Home*
    *
    * - **Field Type**: Slice Zone

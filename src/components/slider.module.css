@@ -14,7 +14,15 @@
     );
 }
 
-.progress {
+.caption {
+    @apply relative;
+    @apply overflow-hidden;
+    @apply block;
+    @apply px-5;
+    @apply py-2;
+}
+
+/* .progress {
     @apply mt-1;
     @apply block;
     @apply relative;
@@ -23,10 +31,10 @@
     @apply h-[1px];
     @apply w-full;
     @apply rounded-lg;
-}
+} */
 
-.progress::after {
-    content: '';
+.progress {
+    /* content: ''; */
     @apply block;
     @apply absolute;
     @apply left-0;
@@ -36,12 +44,14 @@
     @apply z-1;
     @apply bg-white;
     @apply origin-right;
+    @apply opacity-0;
     transform: scaleX(0);
     transition: transform 200ms linear;
 }
 
-.progress.active::after {
-    transform: scaleX(1);
+.progress.active {
+    @apply opacity-100;
     @apply origin-left;
+    transform: scaleX(1);
     transition-duration: 3500ms;
 }

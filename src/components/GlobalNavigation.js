@@ -4,8 +4,8 @@ import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 
 const getData = async (type) => {
     const client = createClient();
+    const document = await client.getSingle(type);
     try {
-        const document = await client.getSingle(type);
         // console.log('document', document);
         return document.data;
     }
