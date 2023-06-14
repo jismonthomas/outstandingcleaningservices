@@ -48,12 +48,12 @@ export default async function Home() {
                         <div className='sm:w-6/12'>
                             <div className='section-heading lg:text-right leading-none'>
                                 <PrismicRichText
-                                    field={data.section_3_left_side}
+                                    field={data?.section_3_left_side}
                                 />
                             </div>
                         </div>
                         <div className='w-11/12 sm:w-6/12 ml-auto mt-10 lg:mt-28'>
-                            <PrismicRichText field={data.section_3_right_side} />
+                            <PrismicRichText field={data?.section_3_right_side} />
                         </div>
                     </div>
                 </div>
