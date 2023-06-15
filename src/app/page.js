@@ -3,24 +3,24 @@ import { createClient } from '../../prismicio';
 import Slider from '@/components/Slider';
 import { PrismicImage, PrismicRichText } from '@prismicio/react';
 
+const getData = async (pageId) => {
+    const client = createClient();
+    try {
+        const document = await client.getSingle(pageId);
+        console.log('document: ', document.data);
+        return document.data;
+    }
+    catch (e) {
+        console.log('fetch error', e);
+    }
+};
+
 
 export default async function Home() {
-    const client = createClient();
-
-    const getData = async (pageId) => {
-        try {
-            const document = await client.getSingle(pageId);
-            console.log('document: ', document.data);
-            return document.data;
-        }
-        catch (e) {
-            console.log('fetch error', e);
-        }
-    };
 
     const data = await getData("home"); //error here
     const header = data?.slices?.filter(slice => slice.slice_type === 'header');
-    const slider = data.slices.filter(slice => slice.slice_type === 'image_slider');
+    const slider = data?.slices.filter(slice => slice.slice_type === 'image_slider');
     // const servicePage = await getData("services");
     // const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
     // console.log('header :', header);
