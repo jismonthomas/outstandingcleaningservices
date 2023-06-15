@@ -35,7 +35,11 @@ const GlobalNavigation = async () => {
                             {
                                 menuItems.map(menuItem => {
                                     return menuItem[1].id &&
-                                        <PrismicNextLink field={menuItem[1]} className='py-5 px-10 inline-block capitalize leading-none'>
+                                        <PrismicNextLink
+                                            field={menuItem[1]}
+                                            key={menuItem}
+                                            className='py-5 px-10 inline-block capitalize leading-none'
+                                        >
                                             {menuItem[1].slug}
                                         </PrismicNextLink>;
                                 })

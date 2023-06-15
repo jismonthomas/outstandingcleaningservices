@@ -10,7 +10,7 @@ export default async function Home() {
     const getData = async (pageId) => {
         try {
             const document = await client.getSingle(pageId);
-            // console.log('document: ', document.data);
+            console.log('document: ', document.data);
             return document.data;
         }
         catch (e) {
