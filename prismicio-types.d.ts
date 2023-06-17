@@ -469,7 +469,7 @@ interface ServicesDocumentData {
  * Slice for *Services → Slice Zone*
  *
  */
-type ServicesDocumentDataSlicesSlice = ServiceItemSlice;
+type ServicesDocumentDataSlicesSlice = ServiceItemSlice | HeaderSlice;
 /**
  * Services document from Prismic
  *

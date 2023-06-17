@@ -18,10 +18,9 @@ const getData = async (pageId) => {
 const Home = async () => {
 
     const data = await getData("home");
-    console.log('received data : ', data);
+    // console.log('received data : ', data);
     const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     const slider = data?.slices.filter(slice => slice.slice_type === 'image_slider');
-    const cta = data?.slices.filter(slice => slice.slice_type === 'call_to_action');
     const servicePage = await getData("services");
     const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
 
@@ -82,9 +81,7 @@ const Home = async () => {
                 </div>
             </section>
 
-            <CallToAction
-                ctaSlice={cta}
-            />
+            <CallToAction />
         </main>
     );
 };

@@ -50,7 +50,7 @@ export const createClient = (config = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
     ...config,
-    accessToken: process.env.customKey,
+    accessToken: process.env.accessToken,
   });
 
   prismicNext.enableAutoPreviews({

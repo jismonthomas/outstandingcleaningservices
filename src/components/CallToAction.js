@@ -1,6 +1,19 @@
 import { PrismicLink, PrismicRichText } from '@prismicio/react';
+import { createClient } from '../../prismicio';
 
-const CallToAction = ({ ctaSlice }) => {
+const getData = async (pageId) => {
+    const client = createClient();
+    const document = await client.getSingle(pageId);
+    const data = document.data;
+    // console.log('data data', data);
+    return data;
+};
+
+const CallToAction = async () => {
+
+
+    const data = await getData("home");
+    const ctaSlice = data?.slices.filter(slice => slice.slice_type === 'call_to_action');
     const headingLines = ctaSlice[0].items;
     const paragraph = ctaSlice[0].primary.description;
 

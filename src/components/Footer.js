@@ -6,7 +6,7 @@ const getData = async (type) => {
     const client = createClient();
     const document = await client.getSingle(type);
     try {
-        console.log('footer document', document);
+        // console.log('footer document', document);
         return document.data;
     }
     catch (e) {
@@ -20,7 +20,7 @@ const Footer = async () => {
     const logo = footer.logo;
     const menuItems = Object.entries(footer).slice(1);
 
-    console.log('menuItems', menuItems);
+    // console.log('menuItems', menuItems);
 
     return (
         <footer>
@@ -56,7 +56,7 @@ const Footer = async () => {
                             © {new Date().getFullYear()} . All Rights Reserved
                         </div>
                         <div className=' font-semibold'>
-                            <Link href="https://www.jismonthomas.com/" target='_blank'>A website by Jismon</Link>
+                            <Link href="https://www.jismonthomas.com/?ref=outstandingCleaning" target='_blank'>A website by Jismon</Link>
                         </div>
                     </div>
                 </div>
