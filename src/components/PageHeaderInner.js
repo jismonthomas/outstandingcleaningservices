@@ -4,6 +4,7 @@ const PageHeaderInner = ({ headerSlice }) => {
 
     const headingLines = headerSlice[0].items;
     const paragraph = headerSlice[0].primary.description;
+    console.log('headerSlice', headerSlice);
 
     // console.log('para', headerSlice[0].primary.description);
     return (
