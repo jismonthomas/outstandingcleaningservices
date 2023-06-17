@@ -14,7 +14,7 @@ const getData = async (pageId) => {
 };
 
 
-const Services = async () => {
+const ServicesPage = async () => {
     const data = await getData("services");
     const header = data.slices.filter(slice => slice.slice_type === 'header');
     const services = data.slices.filter(slice => slice.slice_type === 'service_item');
@@ -55,4 +55,4 @@ const Services = async () => {
     );
 };
 
-export default Services;
+export default ServicesPage;
