@@ -1,4 +1,4 @@
-// import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/PageHeader';
 import { createClient } from '../../prismicio';
 // import Slider from '@/components/Slider';
 // import { PrismicImage } from '@prismicio/react';
@@ -17,7 +17,7 @@ const Home = async () => {
 
     const data = await getData("home");
     console.log('received data : ', data);
-    // const header = data?.slices?.filter(slice => slice.slice_type === 'header');
+    const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     // const slider = data?.slices.filter(slice => slice.slice_type === 'image_slider');
     // const servicePage = await getData("services");
     // const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
@@ -29,9 +29,9 @@ const Home = async () => {
 
     return (
         <main>
-            {/* <PageHeader
-            headerSlice={header}
-            /> */}
+            <PageHeader
+                headerSlice={header}
+            />
             <section className='bg-gradient-to-b from-primary-blue from-20% to-transparent to-20%'>
                 <div className='section-wrapper'>
                     <div className='container'>
