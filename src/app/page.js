@@ -49,7 +49,6 @@ const Home = async () => {
                                 <PrismicRichText
                                     field={data?.section_3_left_side}
                                 />
-                                {data.section_3_left_side[0].text}
                             </div>
                         </div>
                         <div className='w-11/12 sm:w-6/12 ml-auto mt-10 lg:mt-28'>
@@ -66,7 +65,7 @@ const Home = async () => {
                             {services[0].items.map((serviceItem, i) => {
                                 return <div
                                     key={`${serviceItem}${i}`}
-                                    className='rounded-lg p-14 lg:w-5/12'
+                                    className='rounded-lg p-7 sm:p-14 lg:w-5/12'
                                     style={{ background: serviceItem.theme }}
                                 >
 
