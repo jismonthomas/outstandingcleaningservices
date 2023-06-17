@@ -19,7 +19,9 @@ const ServicesPage = async () => {
     const header = data?.slices.filter(slice => slice.slice_type === 'header');
     const services = data?.slices.filter(slice => slice.slice_type === 'service_item');
 
-    console.log('services data: ', data);
+    console.log('header data: ', header);
+    console.log('services data: ', services);
+
 
     return (
         <main>
