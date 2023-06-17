@@ -1,7 +1,7 @@
 import { createClient } from '../../../prismicio';
 import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
-import CallToAction from '../../components/CallToAction';
+import CallToAction from '@/components/CallToAction';
 import PageHeaderInner from '@/components/PageHeaderInner';
 
 
