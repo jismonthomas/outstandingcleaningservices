@@ -6,15 +6,16 @@ import { PrismicImage, PrismicRichText } from '@prismicio/react';
 const getData = async (pageId) => {
     const client = createClient();
     const document = await client.getSingle(pageId);
-    console.log('document: ', document.data);
-    return document.data;
+    const data = document.data;
+    console.log('data data', data);
+    return data;
 };
 
 
 
-export default async function Home() {
+const Home = async () => {
 
-    const data = await getData("home"); //error here
+    const data = await getData("home");
     console.log('received data : ', data);
     // const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     // const slider = data?.slices.filter(slice => slice.slice_type === 'image_slider');
@@ -84,4 +85,6 @@ export default async function Home() {
 
         </main>
     );
-}
+};
+
+export default Home;
