@@ -6,8 +6,11 @@ const LenisWrapper = ({ children }) => {
 
     const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
+    let lenis;
+
     useIsomorphicLayoutEffect(() => {
-        const lenis = new Lenis();
+
+        lenis = new Lenis();
 
         lenis.on('scroll', (e) => {
             // console.log(e);
