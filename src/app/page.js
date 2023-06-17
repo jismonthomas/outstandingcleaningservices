@@ -1,7 +1,7 @@
 import PageHeader from '@/components/PageHeader';
 import { createClient } from '../../prismicio';
 import Slider from '@/components/Slider';
-import { PrismicLink, PrismicRichText } from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage } from '@prismicio/next';
 
 const getData = async (pageId) => {
