@@ -15,6 +15,7 @@ const getData = async (pageId) => {
 export default async function Home() {
 
     const data = await getData("home"); //error here
+    console.log('received data : ', data);
     // const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     // const slider = data?.slices.filter(slice => slice.slice_type === 'image_slider');
     // const servicePage = await getData("services");
@@ -46,11 +47,11 @@ export default async function Home() {
                                 {/* <PrismicRichText
                                     field={data?.section_3_left_side}
                                 /> */}
-                                {data.section_3_left_side.text}
+                                {data.section_3_left_side[0].text}
                             </div>
                         </div>
                         <div className='w-11/12 sm:w-6/12 ml-auto mt-10 lg:mt-28'>
-                            <PrismicRichText field={data?.section_3_right_side} />
+                            {/* <PrismicRichText field={data?.section_3_right_side} /> */}
                         </div>
                     </div>
                 </div>
