@@ -1,7 +1,8 @@
 import PageHeader from '@/components/PageHeader';
 import { createClient } from '../../prismicio';
-// import Slider from '@/components/Slider';
-// import { PrismicImage } from '@prismicio/react';
+import Slider from '@/components/Slider';
+import { PrismicLink, PrismicRichText } from '@prismicio/react';
+import { PrismicNextImage } from '@prismicio/next';
 
 const getData = async (pageId) => {
     const client = createClient();
@@ -18,9 +19,9 @@ const Home = async () => {
     const data = await getData("home");
     console.log('received data : ', data);
     const header = data?.slices?.filter(slice => slice.slice_type === 'header');
-    // const slider = data?.slices.filter(slice => slice.slice_type === 'image_slider');
-    // const servicePage = await getData("services");
-    // const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
+    const slider = data?.slices.filter(slice => slice.slice_type === 'image_slider');
+    const servicePage = await getData("services");
+    const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
     // console.log('header :', header);
     // console.log('slider :', slider);
     // console.log('services',services);
@@ -35,7 +36,7 @@ const Home = async () => {
             <section className='bg-gradient-to-b from-primary-blue from-20% to-transparent to-20%'>
                 <div className='section-wrapper'>
                     <div className='container'>
-                        {/* <Slider content={slider} /> */}
+                        <Slider content={slider} />
                     </div>
                 </div>
             </section>
@@ -45,20 +46,20 @@ const Home = async () => {
                     <div className='container'>
                         <div className='sm:w-6/12'>
                             <div className='section-heading lg:text-right leading-none'>
-                                {/* <PrismicRichText
+                                <PrismicRichText
                                     field={data?.section_3_left_side}
-                                /> */}
+                                />
                                 {data.section_3_left_side[0].text}
                             </div>
                         </div>
                         <div className='w-11/12 sm:w-6/12 ml-auto mt-10 lg:mt-28'>
-                            {/* <PrismicRichText field={data?.section_3_right_side} /> */}
+                            <PrismicRichText field={data?.section_3_right_side} />
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* <section>
+            <section>
                 <div className='section-wrapper small'>
                     <div className='container'>
                         <div className='flex max-lg:flex-col flex-wrap justify-between gap-12 2xl:gap-24 services'>
@@ -68,7 +69,8 @@ const Home = async () => {
                                     className='rounded-lg p-14 lg:w-5/12'
                                     style={{ background: serviceItem.theme }}
                                 >
-                                    <PrismicImage field={serviceItem.icon} className='w-[100px]' />
+
+                                    <PrismicNextImage field={serviceItem.icon} className='w-[100px]' />
                                     <h2
                                         className='mt-8'>
                                         {serviceItem.heading}
@@ -81,7 +83,7 @@ const Home = async () => {
                         </div>
                     </div>
                 </div>
-            </section> */}
+            </section>
 
         </main>
     );
