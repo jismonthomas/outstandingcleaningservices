@@ -1,11 +1,11 @@
-import PageHeader from '@/components/PageHeader';
+// import PageHeader from '@/components/PageHeader';
 import { createClient } from '../../prismicio';
-import Slider from '@/components/Slider';
-import { PrismicImage, PrismicRichText } from '@prismicio/react';
+// import Slider from '@/components/Slider';
+// import { PrismicImage } from '@prismicio/react';
 
 const getData = async (pageId) => {
     const client = createClient();
-    const document = await client.getByUID("home", pageId);
+    const document = await client.getSingle(pageId);
     const data = document.data;
     console.log('data data', data);
     return data;
