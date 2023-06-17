@@ -14,10 +14,10 @@ const getData = async (pageId) => {
 };
 
 
-const Home = async () => {
+const ServicesPage = async () => {
     const data = await getData("services");
-    const header = data.slices.filter(slice => slice.slice_type === 'header');
-    const services = data.slices.filter(slice => slice.slice_type === 'service_item');
+    const header = data?.slices.filter(slice => slice.slice_type === 'header');
+    const services = data?.slices.filter(slice => slice.slice_type === 'service_item');
 
     console.log('services data: ', data);
 
@@ -28,7 +28,7 @@ const Home = async () => {
                 <div className='section-wrapper'>
                     <div className='container'>
                         <div className='flex max-lg:flex-col flex-wrap justify-between gap-12 2xl:gap-24 services'>
-                            {services[0].items.map((serviceItem, i) => {
+                            {services && services[0]?.items.map((serviceItem, i) => {
                                 return <div
                                     key={`${serviceItem}${i}`}
                                     className='rounded-lg p-7 sm:p-14 lg:w-[45%]'
@@ -55,4 +55,4 @@ const Home = async () => {
     );
 };
 
-export default Home;
+export default ServicesPage;
