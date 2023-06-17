@@ -43,9 +43,10 @@ export default async function Home() {
                     <div className='container'>
                         <div className='sm:w-6/12'>
                             <div className='section-heading lg:text-right leading-none'>
-                                <PrismicRichText
+                                {/* <PrismicRichText
                                     field={data?.section_3_left_side}
-                                />
+                                /> */}
+                                {data.section_3_left_side.text}
                             </div>
                         </div>
                         <div className='w-11/12 sm:w-6/12 ml-auto mt-10 lg:mt-28'>
