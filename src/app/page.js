@@ -5,7 +5,7 @@ import { PrismicImage, PrismicRichText } from '@prismicio/react';
 
 const getData = async (pageId) => {
     const client = createClient();
-    const document = await client.getSingle(pageId);
+    const document = await client.getByUID("home", pageId);
     const data = document.data;
     console.log('data data', data);
     return data;
