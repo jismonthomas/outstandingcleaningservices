@@ -3,16 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"title_line_1": {
-				"__TYPE__": "FieldContent",
-				"value": "eaten",
-				"type": "Text"
-			},
-			"title_line_2": {
-				"__TYPE__": "FieldContent",
-				"value": "paper",
-				"type": "Text"
-			},
 			"description": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -23,8 +13,46 @@
 						}
 					}
 				]
+			},
+			"primary_button": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"primary_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "truck",
+				"type": "Text"
+			},
+			"secondary_button": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"secondary_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "gave",
+				"type": "Text"
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title_line",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "dinner",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
 	}
 ]

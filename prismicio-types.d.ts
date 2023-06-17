@@ -461,26 +461,6 @@ export type AllDocumentTypes =
  */
 interface CallToActionSliceDefaultPrimary {
   /**
-   * Title Line 1 field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.primary.title_line_1
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  title_line_1: prismic.KeyTextField;
-  /**
-   * Title Line 2 field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.primary.title_line_2
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  title_line_2: prismic.KeyTextField;
-  /**
    * Description field in *CallToAction → Primary*
    *
    * - **Field Type**: Rich Text
@@ -490,6 +470,62 @@ interface CallToActionSliceDefaultPrimary {
    *
    */
   description: prismic.RichTextField;
+  /**
+   * Primary Button field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.primary_button
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  primary_button: prismic.LinkField;
+  /**
+   * Primary Button Text field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.primary_button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  primary_button_text: prismic.KeyTextField;
+  /**
+   * Secondary Button field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.secondary_button
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  secondary_button: prismic.LinkField;
+  /**
+   * Secondary Button Text field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.secondary_button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  secondary_button_text: prismic.KeyTextField;
+}
+/**
+ * Item in CallToAction → Items
+ *
+ */
+export interface CallToActionSliceDefaultItem {
+  /**
+   * Title Line field in *CallToAction → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].title_line
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title_line: prismic.KeyTextField;
 }
 /**
  * Default variation for CallToAction Slice
@@ -502,7 +538,7 @@ interface CallToActionSliceDefaultPrimary {
 export type CallToActionSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<CallToActionSliceDefaultPrimary>,
-  never
+  Simplify<CallToActionSliceDefaultItem>
 >;
 /**
  * Slice variation for *CallToAction*
@@ -834,6 +870,7 @@ declare module "@prismicio/client" {
       SettingsDocument,
       AllDocumentTypes,
       CallToActionSliceDefaultPrimary,
+      CallToActionSliceDefaultItem,
       CallToActionSliceDefault,
       CallToActionSliceVariation,
       CallToActionSlice,

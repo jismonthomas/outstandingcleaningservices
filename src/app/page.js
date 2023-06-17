@@ -3,6 +3,7 @@ import { createClient } from '../../prismicio';
 import Slider from '@/components/Slider';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage } from '@prismicio/next';
+import CallToAction from '@/components/CallToAction';
 
 const getData = async (pageId) => {
     const client = createClient();
@@ -20,6 +21,7 @@ const Home = async () => {
     console.log('received data : ', data);
     const header = data?.slices?.filter(slice => slice.slice_type === 'header');
     const slider = data?.slices.filter(slice => slice.slice_type === 'image_slider');
+    const cta = data?.slices.filter(slice => slice.slice_type === 'call_to_action');
     const servicePage = await getData("services");
     const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
     // console.log('header :', header);
@@ -84,6 +86,9 @@ const Home = async () => {
                 </div>
             </section>
 
+            <CallToAction
+                ctaSlice={cta}
+            />
         </main>
     );
 };

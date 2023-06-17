@@ -12,14 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "title_line_1": {
-          "type": "Text",
-          "config": { "label": "Title Line 1", "placeholder": "" }
-        },
-        "title_line_2": {
-          "type": "Text",
-          "config": { "label": "Title Line 2", "placeholder": "" }
-        },
         "description": {
           "type": "StructuredText",
           "config": {
@@ -28,9 +20,38 @@
             "allowTargetBlank": true,
             "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
+        },
+        "primary_button": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Button",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "primary_button_text": {
+          "type": "Text",
+          "config": { "label": "Primary Button Text", "placeholder": "" }
+        },
+        "secondary_button": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Button",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "secondary_button_text": {
+          "type": "Text",
+          "config": { "label": "Secondary Button Text", "placeholder": "" }
         }
       },
-      "items": {}
+      "items": {
+        "title_line": {
+          "type": "Text",
+          "config": { "label": "Title Line", "placeholder": "" }
+        }
+      }
     }
   ]
 }
