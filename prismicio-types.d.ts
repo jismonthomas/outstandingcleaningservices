@@ -149,6 +149,72 @@ interface FooterDocumentData {
    */
   logo: prismic.ImageField<never>;
   /**
+   * Menu Item 1 field in *Footer*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.menu_item_1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  menu_item_1: prismic.LinkField;
+  /**
+   * Menu Item 2 field in *Footer*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.menu_item_2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  menu_item_2: prismic.RelationField;
+  /**
+   * Menu Item 3 field in *Footer*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.menu_item_3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  menu_item_3: prismic.RelationField;
+  /**
+   * Menu Item 4 field in *Footer*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.menu_item_4
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  menu_item_4: prismic.RelationField;
+  /**
+   * Menu Item 5 field in *Footer*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.menu_item_5
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  menu_item_5: prismic.RelationField;
+  /**
+   * Menu Item 6 field in *Footer*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.menu_item_6
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  menu_item_6: prismic.RelationField;
+  /**
    * Slice Zone field in *Footer*
    *
    * - **Field Type**: Slice Zone

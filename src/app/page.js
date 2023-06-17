@@ -10,7 +10,7 @@ const getData = async (pageId) => {
     const client = createClient();
     const document = await client.getSingle(pageId);
     const data = document.data;
-    console.log('data data', data);
+    // console.log('data data', data);
     return data;
 };
 
@@ -25,10 +25,6 @@ const Home = async () => {
     const cta = data?.slices.filter(slice => slice.slice_type === 'call_to_action');
     const servicePage = await getData("services");
     const services = servicePage.slices.filter(slice => slice.slice_type === 'service_item');
-    // console.log('header :', header);
-    // console.log('slider :', slider);
-    // console.log('services',services);
-
 
 
     return (
@@ -62,7 +58,7 @@ const Home = async () => {
             </section>
 
             <section>
-                <div className='section-wrapper small'>
+                <div className='section-wrapper'>
                     <div className='container'>
                         <div className='flex max-lg:flex-col flex-wrap justify-between gap-12 2xl:gap-24 services'>
                             {services[0].items.map((serviceItem, i) => {
