@@ -1,5 +1,4 @@
 import { PrismicLink, PrismicRichText } from '@prismicio/react';
-import React from 'react';
 
 const CallToAction = ({ ctaSlice }) => {
     const headingLines = ctaSlice[0].items;
