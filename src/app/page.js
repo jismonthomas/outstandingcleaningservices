@@ -4,7 +4,6 @@ import Slider from '@/components/Slider';
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage } from '@prismicio/next';
 import CallToAction from '@/components/CallToAction';
-import Footer from '@/components/Footer';
 
 const getData = async (pageId) => {
     const client = createClient();
@@ -86,7 +85,6 @@ const Home = async () => {
             <CallToAction
                 ctaSlice={cta}
             />
-            <Footer />
         </main>
     );
 };

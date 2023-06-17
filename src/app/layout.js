@@ -1,7 +1,10 @@
-import GlobalNavigation from '../components/GlobalNavigation';
-import './globals.css';
 import { Manrope } from 'next/font/google';
 import localFont from 'next/font/local';
+import GlobalNavigation from '@/components/GlobalNavigation';
+import Footer from '@/components/Footer';
+import './globals.css';
+import LenisWrapper from '@/components/LenisWrapper';
+
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -21,11 +24,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${switzer.variable}`}>
-        <GlobalNavigation />
-        {children}
+        <LenisWrapper>
+          <GlobalNavigation />
+          {children}
+          <Footer />
+        </LenisWrapper>
       </body>
     </html>
   );
