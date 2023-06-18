@@ -8,7 +8,7 @@ const PageHeaderInner = ({ headerSlice }) => {
 
     // console.log('para', headerSlice[0].primary.description);
     return (
-        <header className={`flex w-full items-center justify-center innerPageHeader  ${headerSlice[0].variation}`}>
+        headerSlice && <header className={`flex w-full items-center justify-center innerPageHeader  ${headerSlice[0]?.variation}`}>
             <div className='section-wrapper small'>
 
                 <div className='container text-center'>
