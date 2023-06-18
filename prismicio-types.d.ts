@@ -56,7 +56,7 @@ interface AboutDocumentData {
  * Slice for *About → Slice Zone*
  *
  */
-type AboutDocumentDataSlicesSlice = never;
+type AboutDocumentDataSlicesSlice = HeaderSlice;
 /**
  * About document from Prismic
  *

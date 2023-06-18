@@ -1,19 +1,29 @@
+import PageHeaderInner from '@/components/PageHeaderInner';
 import { createClient } from '../../../prismicio';
 
-
-export default async function Home() {
+const getData = async (pageId) => {
     const client = createClient();
-    // const document = await client.getSingle("home");
+    const document = await client.getSingle(pageId);
+    const data = document.data;
+    return data;
+};
 
-    // console.log('client', client);
-    // console.log('PAGE DATA: ', document.data);
+const AboutPage = async () => {
+
+    const data = await getData("about");
+    const header = data?.slices.filter(slice => slice.slice_type === 'header');
+
+    console.log('AboutPage DATA: ', data);
 
     return (
-        <main className="flex min-h-screen">
+        <main>
+
+            <PageHeaderInner headerSlice={header} />
             <div>
                 <h1>Aboout Page</h1>
-                {/* <PrismicRichText field={document.data.header_text} /> */}
             </div>
         </main>
     );
-}
+};
+
+export default AboutPage;
