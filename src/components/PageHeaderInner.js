@@ -2,8 +2,8 @@ import { PrismicRichText } from '@prismicio/react';
 
 const PageHeaderInner = ({ headerSlice }) => {
 
-    const headingLines = headerSlice[0].items;
-    const paragraph = headerSlice[0].primary.description;
+    const headingLines = headerSlice[0]?.items;
+    const paragraph = headerSlice[0]?.primary.description;
     console.log('headerSlice', headerSlice);
 
     // console.log('para', headerSlice[0].primary.description);
@@ -14,7 +14,7 @@ const PageHeaderInner = ({ headerSlice }) => {
                 <div className='container text-center'>
                     <h1>
                         {
-                            headingLines.map(({ title_line }) => {
+                            headingLines && headingLines.map(({ title_line }) => {
                                 return <span className='block' id={title_line} key={title_line}>
                                     {title_line}
                                 </span>;
