@@ -25,7 +25,7 @@ const ServicesPage = async () => {
 
     return (
         <main>
-            {/* <PageHeaderInner headerSlice={header} /> */}
+            <PageHeaderInner headerSlice={header} />
             <section>
                 <div className='section-wrapper'>
                     <div className='container'>
