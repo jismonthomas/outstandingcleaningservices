@@ -159,6 +159,10 @@ header.headerWithButton p,
     font-size: clamp(2rem, 5.58vw, 6.688rem);
 }
 
+.section-heading.small h1 {
+    font-size: clamp(1.5rem, 3vw, 3.569rem);
+}
+
 .services h2 {
     font-size: clamp(1.5rem, 1.83vw, 2.188rem);
 }

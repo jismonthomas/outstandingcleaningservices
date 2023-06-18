@@ -8,6 +8,39 @@ type Simplify<T> = {
 /** Content for About documents */
 interface AboutDocumentData {
   /**
+   * Image field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Image Heading field in *About*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.image_heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  image_heading: prismic.TitleField;
+  /**
+   * Image Text field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.image_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  image_text: prismic.RichTextField;
+  /**
    * Slice Zone field in *About*
    *
    * - **Field Type**: Slice Zone
@@ -56,7 +89,10 @@ interface AboutDocumentData {
  * Slice for *About → Slice Zone*
  *
  */
-type AboutDocumentDataSlicesSlice = HeaderSlice;
+type AboutDocumentDataSlicesSlice =
+  | HeaderSlice
+  | HeadingAndTextSlice
+  | ParagraphSlice;
 /**
  * About document from Prismic
  *
@@ -813,6 +849,72 @@ type HeaderSliceVariation = HeaderSliceDefault | HeaderSliceHeaderWithButton;
  */
 export type HeaderSlice = prismic.SharedSlice<"header", HeaderSliceVariation>;
 /**
+ * Primary content in HeadingAndText → Primary
+ *
+ */
+interface HeadingAndTextSliceDefaultPrimary {
+  /**
+   * Identifier field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: (used identify content in code)
+   * - **API ID Path**: heading_and_text.primary.identifier
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  identifier: prismic.KeyTextField;
+  /**
+   * Heading field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.heading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  heading: prismic.RichTextField;
+  /**
+   * Text field in *HeadingAndText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading_and_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Default variation for HeadingAndText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeadingAndTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeadingAndTextSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *HeadingAndText*
+ *
+ */
+type HeadingAndTextSliceVariation = HeadingAndTextSliceDefault;
+/**
+ * HeadingAndText Shared Slice
+ *
+ * - **API ID**: `heading_and_text`
+ * - **Description**: `HeadingAndText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeadingAndTextSlice = prismic.SharedSlice<
+  "heading_and_text",
+  HeadingAndTextSliceVariation
+>;
+/**
  * Item in ImageSlider → Items
  *
  */
@@ -867,6 +969,68 @@ type ImageSliderSliceVariation = ImageSliderSliceDefault;
 export type ImageSliderSlice = prismic.SharedSlice<
   "image_slider",
   ImageSliderSliceVariation
+>;
+/**
+ * Primary content in Paragraph → Primary
+ *
+ */
+interface ParagraphSliceDefaultPrimary {
+  /**
+   * Identifier field in *Paragraph → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: (used identify content in code)
+   * - **API ID Path**: paragraph.primary.identifier
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  identifier: prismic.KeyTextField;
+}
+/**
+ * Item in Paragraph → Items
+ *
+ */
+export interface ParagraphSliceDefaultItem {
+  /**
+   * Paragraph field in *Paragraph → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: paragraph.items[].paragraph
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  paragraph: prismic.RichTextField;
+}
+/**
+ * Default variation for Paragraph Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ParagraphSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ParagraphSliceDefaultPrimary>,
+  Simplify<ParagraphSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Paragraph*
+ *
+ */
+type ParagraphSliceVariation = ParagraphSliceDefault;
+/**
+ * Paragraph Shared Slice
+ *
+ * - **API ID**: `paragraph`
+ * - **Description**: `Paragraph`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ParagraphSlice = prismic.SharedSlice<
+  "paragraph",
+  ParagraphSliceVariation
 >;
 /**
  * Item in ServiceItem → Items
@@ -996,10 +1160,19 @@ declare module "@prismicio/client" {
       HeaderSliceHeaderWithButton,
       HeaderSliceVariation,
       HeaderSlice,
+      HeadingAndTextSliceDefaultPrimary,
+      HeadingAndTextSliceDefault,
+      HeadingAndTextSliceVariation,
+      HeadingAndTextSlice,
       ImageSliderSliceDefaultItem,
       ImageSliderSliceDefault,
       ImageSliderSliceVariation,
       ImageSliderSlice,
+      ParagraphSliceDefaultPrimary,
+      ParagraphSliceDefaultItem,
+      ParagraphSliceDefault,
+      ParagraphSliceVariation,
+      ParagraphSlice,
       ServiceItemSliceDefaultItem,
       ServiceItemSliceDefault,
       ServiceItemSliceVariation,
