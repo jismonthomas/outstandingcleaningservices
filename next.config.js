@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
-        accessToken: 'MC5aSTRXVlJBQUFDQUF1NDJN.Az5iYX4aGe-_ve-_ve-_vSFEQgPvv70077-977-977-9fu-_vRU2Se-_vQkj77-977-977-977-9bw',
+        accessToken: 'MC5aSTZlUEJBQUFDSUF2RTVJ.ZA7vv73vv73vv73vv70377-977-9cO-_vQhOGgIrLO-_ve-_vTbvv73vv71077-9Eu-_vWoB77-9HGDvv70',
     },
 };
 
