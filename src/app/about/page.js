@@ -23,6 +23,8 @@ const AboutPage = async () => {
     const vision = data?.slices[2];
     const values = data?.slices[3];
 
+    console.log('AboutPage Data', data);
+
     return (
         <main>
 
