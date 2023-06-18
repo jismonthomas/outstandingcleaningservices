@@ -13,7 +13,7 @@ const PageHeader = ({ headerSlice }) => {
                 <h1>
                     {
                         headingLines.map(({ title_line }) => {
-                            return <span className='block whitespace-nowrap' id={title_line}>
+                            return <span className='block whitespace-nowrap' id={title_line} key={title_line}>
                                 {title_line}
                             </span>;
                         })
