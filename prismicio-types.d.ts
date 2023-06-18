@@ -119,7 +119,7 @@ interface ContactDocumentData {
  * Slice for *Contact → Slice Zone*
  *
  */
-type ContactDocumentDataSlicesSlice = never;
+type ContactDocumentDataSlicesSlice = HeaderSlice;
 /**
  * Contact document from Prismic
  *
