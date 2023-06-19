@@ -63,7 +63,7 @@ header h1,
 header.innerPageHeader h1 {
     @apply mx-auto;
     font-size: clamp(2rem, 6.76vw, 7.938rem);
-    max-width: 80%;
+    max-width: 85%;
 }
 
 header.innerPageHeader p {

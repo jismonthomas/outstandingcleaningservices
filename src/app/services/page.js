@@ -37,7 +37,7 @@ const ServicesPage = async () => {
                                     style={{ background: serviceItem.theme }}
                                 >
 
-                                    <PrismicNextImage field={serviceItem.icon} className='w-[180px]' />
+                                    <PrismicNextImage field={serviceItem.icon} className='w-[90px] lg:w-[180px]' />
                                     <h2
                                         className='mt-8 lg:mt-20'>
                                         {serviceItem.heading}
