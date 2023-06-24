@@ -1,6 +1,7 @@
 'use client';
 import PageHeaderInner from '@/components/PageHeaderInner';
 import { createClient } from '../../../prismicio';
+import sendEmail from '../api/sendgrid';
 
 import { useState } from 'react';
 
@@ -22,7 +23,7 @@ const ContactPage = async () => {
 
     const submitMessage = async (e) => {
         e.preventDefault();
-        const res = await fetch('/api/sendgrid/', {
+        const res = await fetch('https://outstandingcleaningservices.vercel.app/api/sendgrid', {
             body: JSON.stringify({
                 email: email,
                 fullname: fullname,

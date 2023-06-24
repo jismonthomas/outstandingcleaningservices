@@ -1,8 +1,10 @@
+'use client';
 import sendgrid from '@sendgrid/mail';
 
-sendgrid.setApiKey(process.env.NEXT_PUBLIC_SENDGRID);
 
 async function sendEmail(req, res) {
+    console.log('process.env.NEXT_PUBLIC_SENDGRID', process.env.NEXT_PUBLIC_SENDGRID);
+    sendgrid.setApiKey(process.env.NEXT_PUBLIC_SENDGRID);
 
     try {
         // console.log("REQ.BODY", req.body);
