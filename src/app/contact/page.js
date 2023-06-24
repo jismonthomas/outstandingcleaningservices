@@ -23,7 +23,7 @@ const ContactPage = async () => {
 
     const submitMessage = async (e) => {
         e.preventDefault();
-        const res = await fetch('https://outstandingcleaningservices.vercel.app/api/sendgrid', {
+        const res = await fetch('../api/sendgrid/', {
             body: JSON.stringify({
                 email: email,
                 fullname: fullname,
