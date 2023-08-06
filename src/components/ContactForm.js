@@ -6,7 +6,6 @@ import emailjs from '@emailjs/browser';
 const ContactForm = () => {
     const form = useRef();
     const [sentSuccess, setSentSuccess] = useState(false);
-    const [sentError, setSentError] = useState(false);
     const submitMessage = async (e) => {
         e.preventDefault();
         // setSent(false);
@@ -22,19 +21,19 @@ const ContactForm = () => {
                     // alert(result.text);
                     setSentSuccess(true);
                     // setSentError(false);
-                    console.log('message sent', result);
+                    // console.log('message sent', result);
                     form.current.reset();
                 },
                 (error) => {
                     // alert(error.text);
                     // setSentError(true);
-                    // setSentSuccess(false);
-                    console.log('message NOT sent', error);
+                    setSentSuccess(false);
+                    // console.log('message NOT sent', error);
                 }
             );
     };
 
-    console.log('message sent:  ', sentSuccess);
+    // console.log('message sent:  ', sentSuccess);
 
     return (
         <div>
