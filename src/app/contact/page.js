@@ -1,9 +1,7 @@
-'use client';
 import PageHeaderInner from '@/components/PageHeaderInner';
 import { createClient } from '../../../prismicio';
-import sendEmail from '../api/sendgrid';
 
-import { useState } from 'react';
+import ContactForm from '@/components/ContactForm';
 
 const getData = async (pageId) => {
     const client = createClient();
@@ -13,36 +11,10 @@ const getData = async (pageId) => {
 };
 
 const ContactPage = async () => {
-    const [fullname, setFullname] = useState("Jon Snow");
-    const [email, setEmail] = useState("jismonthomas18@gmai.com");
-    const [subject, setSubject] = useState("send grid test email");
-    const [message, setMessage] = useState("this is the message body of the form");
-
-    const data = await getData("contact");
-    const header = data?.slices.filter(slice => slice.slice_type === 'header');
-
-    const submitMessage = async (e) => {
-        e.preventDefault();
-        const res = await fetch('../api/sendgrid/', {
-            body: JSON.stringify({
-                email: email,
-                fullname: fullname,
-                subject: subject,
-                message: message,
-            }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-            method: "POST",
-        });
-
-        const { error } = await res.json();
-        if (error) {
-            console.log(error);
-            return;
-        }
-        console.log(fullname, email, subject, message);
-    };
+    const data = await getData('contact');
+    const header = data?.slices.filter(
+        (slice) => slice.slice_type === 'header'
+    );
 
     // console.log('ContactPage DATA: ', data);
 
@@ -50,10 +22,13 @@ const ContactPage = async () => {
         <main>
             <PageHeaderInner headerSlice={header} />
 
-            <div>
-                <h1>Contact Page</h1>
-                <button onClick={submitMessage}>SENDEMAIl</button>
-            </div>
+            <section className="bg-gradient-to-b from-primary-blue from-20% to-transparent to-20% mb-28">
+                <div className="container">
+                    <div className="lg:max-w-[75%] mx-auto bg-primary-light-blue rounded-[20px] p-10 lg:p-20">
+                        <ContactForm />
+                    </div>
+                </div>
+            </section>
         </main>
     );
 };

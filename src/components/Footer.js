@@ -8,8 +8,7 @@ const getData = async (type) => {
     try {
         // console.log('footer document', document);
         return document.data;
-    }
-    catch (e) {
+    } catch (e) {
         console.log('could not fecth data');
         return;
     }
@@ -23,40 +22,43 @@ const Footer = async () => {
     // console.log('menuItems', menuItems);
 
     return (
-        <footer>
-            <div className='bg-white py-12 xl:py-24'>
-                <div className='container'>
-                    <div className='flex justify-between items-center py-8 max-xl:flex-col'>
-                        <Link href='/'>
+        <footer className=" border-t-gray-100 border-t-2">
+            <div className="bg-white py-12 xl:py-24">
+                <div className="container">
+                    <div className="flex justify-between items-center py-8 max-xl:flex-col">
+                        <Link href="/">
                             <PrismicNextImage field={logo} />
                         </Link>
 
-                        <div className='max-xl:mt-12'>
-                            {
-                                menuItems.map(menuItem => {
-                                    return menuItem[1].id &&
+                        <div className="max-xl:mt-12">
+                            {menuItems.map((menuItem) => {
+                                return (
+                                    menuItem[1].id && (
                                         <PrismicNextLink
                                             field={menuItem[1]}
                                             key={menuItem}
-                                            className='py-5 px-2 sm:px-5 xl:px-10 inline-block capitalize leading-none'
-                                        >
+                                            className="py-5 px-2 sm:px-5 xl:px-10 inline-block capitalize leading-none">
                                             {menuItem[1].slug}
-                                        </PrismicNextLink>;
-                                })
-                            }
+                                        </PrismicNextLink>
+                                    )
+                                );
+                            })}
                         </div>
-
                     </div>
                 </div>
             </div>
-            <div className='bg-[#F5F4F4] text-[12px] uppercase tracking-widest py-6'>
-                <div className='container'>
-                    <div className='flex justify-between max-lg:flex-col max-lg:items-center gap-3'>
-                        <div className=''>
+            <div className="bg-[#F5F4F4] text-[12px] uppercase tracking-widest py-6">
+                <div className="container">
+                    <div className="flex justify-between max-lg:flex-col max-lg:items-center gap-3">
+                        <div className="">
                             © {new Date().getFullYear()} . All Rights Reserved
                         </div>
-                        <div className=' font-semibold'>
-                            <Link href="https://www.jismonthomas.com/?ref=outstandingCleaning" target='_blank'>A website by Jismon</Link>
+                        <div className=" font-semibold">
+                            <Link
+                                href="https://www.jismonthomas.com/?ref=outstandingCleaning"
+                                target="_blank">
+                                A website by Jismon
+                            </Link>
                         </div>
                     </div>
                 </div>
