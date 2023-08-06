@@ -10,6 +10,13 @@ const getData = async (pageId) => {
     return data;
 };
 
+export const metadata = {
+    title: 'Contact | Outstanding Cleaning Services',
+    description:
+        'Contact Outstanding Cleaning services today itself to get a free quote',
+    keywords: ['cleaning services', 'vancouver', 'surrey'],
+};
+
 const ContactPage = async () => {
     const data = await getData('contact');
     const header = data?.slices.filter(

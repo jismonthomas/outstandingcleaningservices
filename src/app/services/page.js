@@ -4,6 +4,11 @@ import { PrismicRichText } from '@prismicio/react';
 import CallToAction from '@/components/CallToAction';
 import PageHeaderInner from '@/components/PageHeaderInner';
 
+export const metadata = {
+    title: 'Cleaning Services | Outstanding Cleaning Services',
+    description: 'Residential & Commercial cleaning services in Vancouver',
+    keywords: ['residential', 'commercial', 'cleaning', 'vancouver'],
+};
 
 const getData = async (pageId) => {
     const client = createClient();
@@ -13,40 +18,51 @@ const getData = async (pageId) => {
     return data;
 };
 
-
 const ServicesPage = async () => {
-    const data = await getData("services");
-    const header = data?.slices.filter(slice => slice.slice_type === 'header');
-    const services = data?.slices.filter(slice => slice.slice_type === 'service_item');
+    const data = await getData('services');
+    const header = data?.slices.filter(
+        (slice) => slice.slice_type === 'header'
+    );
+    const services = data?.slices.filter(
+        (slice) => slice.slice_type === 'service_item'
+    );
 
     console.log('header data: ', header);
     console.log('services data: ', services);
-
 
     return (
         <main>
             <PageHeaderInner headerSlice={header} />
             <section>
-                <div className='section-wrapper'>
-                    <div className='container'>
-                        <div className='flex max-lg:flex-col flex-wrap justify-between gap-12 2xl:gap-24 services'>
-                            {services && services[0]?.items.map((serviceItem, i) => {
-                                return <div
-                                    key={`${serviceItem}${i}`}
-                                    className='rounded-lg p-7 sm:p-14 lg:w-[45%]'
-                                    style={{ background: serviceItem.theme }}
-                                >
-
-                                    <PrismicNextImage field={serviceItem.icon} className='w-[90px] lg:w-[180px]' />
-                                    <h2
-                                        className='mt-8 lg:mt-20'>
-                                        {serviceItem.heading}
-                                    </h2>
-                                    <div className='mt-5'>
-                                        <PrismicRichText field={serviceItem.description} />
-                                    </div>
-                                </div>;
-                            })}
+                <div className="section-wrapper">
+                    <div className="container">
+                        <div className="flex max-lg:flex-col flex-wrap justify-between gap-12 2xl:gap-24 services">
+                            {services &&
+                                services[0]?.items.map((serviceItem, i) => {
+                                    return (
+                                        <div
+                                            key={`${serviceItem}${i}`}
+                                            className="rounded-lg p-7 sm:p-14 lg:w-[45%]"
+                                            style={{
+                                                background: serviceItem.theme,
+                                            }}>
+                                            <PrismicNextImage
+                                                field={serviceItem.icon}
+                                                className="w-[90px] lg:w-[180px]"
+                                            />
+                                            <h2 className="mt-8 lg:mt-20">
+                                                {serviceItem.heading}
+                                            </h2>
+                                            <div className="mt-5">
+                                                <PrismicRichText
+                                                    field={
+                                                        serviceItem.description
+                                                    }
+                                                />
+                                            </div>
+                                        </div>
+                                    );
+                                })}
                         </div>
                     </div>
                 </div>
